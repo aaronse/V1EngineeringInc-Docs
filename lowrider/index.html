@@ -1,0 +1,3369 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.v1engineering.com/lowrider/">
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
+    
+    
+      
+        <title>LowRider CNC V3 - V1 Engineering Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../v1.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#low-rider-cnc-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="V1 Engineering Documentation" class="md-header__button md-logo" aria-label="V1 Engineering Documentation" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            V1 Engineering Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LowRider CNC V3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/V1EngineeringInc/V1EngineeringInc-Docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    V1EngineeringInc/V1EngineeringInc-Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="V1 Engineering Documentation" class="md-nav__button md-logo" aria-label="V1 Engineering Documentation" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    V1 Engineering Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/V1EngineeringInc/V1EngineeringInc-Docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    V1EngineeringInc/V1EngineeringInc-Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Build
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Build" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Build
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          MPCNC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MPCNC" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          MPCNC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/intro/" class="md-nav__link">
+        Introduction to The MPCNC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/PParts/" class="md-nav__link">
+        MPCNC Primo Parts list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/calculator/" class="md-nav__link">
+        Calculator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/Ptable/" class="md-nav__link">
+        1-Table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/Pbase/" class="md-nav__link">
+        2-Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/trucks/" class="md-nav__link">
+        3-Trucks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/tops/" class="md-nav__link">
+        4-Tops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/core/" class="md-nav__link">
+        5-Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/PZPage/" class="md-nav__link">
+        6-Z Axis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/squaring/" class="md-nav__link">
+        7-Squaring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/PBelts/" class="md-nav__link">
+        8-Belts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/troubleshooting/" class="md-nav__link">
+        Trouble Shooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_13" type="checkbox" id="__nav_2_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_13">
+          Previous Version -Burly
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Previous Version -Burly" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          Previous Version -Burly
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/parts/" class="md-nav__link">
+        Parts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_13_3" type="checkbox" id="__nav_2_1_13_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_13_3">
+          Assembly
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assembly" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_1_13_3">
+          <span class="md-nav__icon md-icon"></span>
+          Assembly
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/table/" class="md-nav__link">
+        Table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/conduit/" class="md-nav__link">
+        Conduit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/base/" class="md-nav__link">
+        Corners, Rollers, Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/z-axis/" class="md-nav__link">
+        Z-Axis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/middle-assm/" class="md-nav__link">
+        Middle Assembly
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/gantry/" class="md-nav__link">
+        Gantry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/final/" class="md-nav__link">
+        Final
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpcnc/burly/belts/" class="md-nav__link">
+        Belts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          LowRider
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="LowRider" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          LowRider
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LowRider CNC V3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LowRider CNC V3
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    Key Points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    Geometry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-can-be-found-at-the-links-below" class="md-nav__link">
+    Files can be found at the links below
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parts-needed" class="md-nav__link">
+    Parts Needed
+  </a>
+  
+    <nav class="md-nav" aria-label="Parts Needed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#printed-parts" class="md-nav__link">
+    Printed Parts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-mounts" class="md-nav__link">
+    Tool Mounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-boxes" class="md-nav__link">
+    Board Boxes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flat-parts" class="md-nav__link">
+    Flat Parts
+  </a>
+  
+    <nav class="md-nav" aria-label="Flat Parts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strut-plates" class="md-nav__link">
+    Strut Plates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yz-plates" class="md-nav__link">
+    YZ Plates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xz-plates" class="md-nav__link">
+    XZ Plates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialty-parts" class="md-nav__link">
+    Specialty Parts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lr2-to-lr3-hardware-differences-for-updating-your-build" class="md-nav__link">
+    LR2 to LR3 hardware differences for updating your build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    Assembly
+  </a>
+  
+    <nav class="md-nav" aria-label="Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-assembly" class="md-nav__link">
+    Core Assembly
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#x-drive" class="md-nav__link">
+    X Drive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-plate-assemblies" class="md-nav__link">
+    Side Plate Assemblies
+  </a>
+  
+    <nav class="md-nav" aria-label="Side Plate Assemblies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#z-end-stop" class="md-nav__link">
+    Z End Stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheels" class="md-nav__link">
+    Wheels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rail-rollers" class="md-nav__link">
+    Rail Rollers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-assembly" class="md-nav__link">
+    Beam Assembly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x-belt" class="md-nav__link">
+    X Belt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y-rail" class="md-nav__link">
+    Y Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wire-routing" class="md-nav__link">
+    Wire Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y-belt" class="md-nav__link">
+    Y Belt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-cutting-your-strut-plates" class="md-nav__link">
+    Getting Started, cutting your strut plates
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started, cutting your strut plates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-squaring" class="md-nav__link">
+    Initial Squaring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z-leveling" class="md-nav__link">
+    Z Leveling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-the-strut-plates" class="md-nav__link">
+    Making the Strut plates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disassembly" class="md-nav__link">
+    Disassembly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-assembly" class="md-nav__link">
+    Final Assembly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vacuum" class="md-nav__link">
+    Vacuum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-machine" class="md-nav__link">
+    Using the machine.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firmware" class="md-nav__link">
+    Firmware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-get-it-dirty-be-safe-have-fun" class="md-nav__link">
+    Go get it dirty, be safe, have fun!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="calculator/" class="md-nav__link">
+        LowRider V3 Calculator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          Previous Versions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Previous Versions" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Previous Versions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lrv2/indexv2/" class="md-nav__link">
+        LR2 Assembly
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lrv2/calculatorv2/" class="md-nav__link">
+        LR2 Calculator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lrv2/version1/" class="md-nav__link">
+        LR1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          MP3DP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MP3DP" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          MP3DP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mp3dp/" class="md-nav__link">
+        Current Version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mp3dp/repeatassm/" class="md-nav__link">
+        Repeat Assembly
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" type="checkbox" id="__nav_2_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_3">
+          Previous Versions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Previous Versions" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Previous Versions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mp3dp/version2/" class="md-nav__link">
+        Second Version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mp3dp/version1/" class="md-nav__link">
+        First Version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ZenXY
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ZenXY" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ZenXY
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zenxy/" class="md-nav__link">
+        ZenXY v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zenxy/zen2calculator/" class="md-nav__link">
+        ZenXY v2 Build Calculator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zenxy/zen2assm1/" class="md-nav__link">
+        ZenXY v2 Assembly
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zenxy/og_zen/" class="md-nav__link">
+        Previous Version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Control" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Some Control Board Options
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Some Control Board Options" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Some Control Board Options
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/skrpro/" class="md-nav__link">
+        SKR Pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/ultimachine/" class="md-nav__link">
+        Ultimachine Boards
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/ramps/" class="md-nav__link">
+        Ramps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Steppers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Steppers" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Steppers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/steppers/" class="md-nav__link">
+        Wiring The Steppers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Some Advanced Options
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Some Advanced Options" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Some Advanced Options
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/v1pi/" class="md-nav__link">
+        V1pi - Headless
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/dual-endstops/" class="md-nav__link">
+        Dual Endstops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/dual-lr/" class="md-nav__link">
+        Dual Endstops Low Rider
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Use
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Use" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Use
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_1" type="checkbox" id="__nav_4_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1_1">
+          Milling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Milling" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Milling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/milling-basics/" class="md-nav__link">
+        Milling Basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/estlcam-basics/" class="md-nav__link">
+        EstlCAM Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/estlcam-2p5d/" class="md-nav__link">
+        EstlCAM Intermediate (2.5d)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/milling-metal/" class="md-nav__link">
+        Milling Metal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/Fengrave-vcarve-inlay/" class="md-nav__link">
+        F Engrave V-Carve
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_2" type="checkbox" id="__nav_4_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1_2">
+          3D Printing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3D Printing" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          3D Printing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/import-extruder/" class="md-nav__link">
+        Import Extruder
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_3" type="checkbox" id="__nav_4_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1_3">
+          Lasers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lasers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lasers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/lasers/" class="md-nav__link">
+        Main
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/laser-engraving-mirrors/" class="md-nav__link">
+        Engraving Mirrors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/drag-knife/" class="md-nav__link">
+        Drag Knife/Vinyl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/foam-needle-cutter/" class="md-nav__link">
+        Needle Cutter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Troubleshoot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Troubleshoot" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshoot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/reverse-motor/" class="md-nav__link">
+        Reversing a Stepper
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learn" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_info/" class="md-nav__link">
+        Editing mkdocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/software_overview/" class="md-nav__link">
+        Software Workflow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/repetier-host/" class="md-nav__link">
+        Repetier-Host
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/marlin-firmware/" class="md-nav__link">
+        Marlin Firmware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/xloader/" class="md-nav__link">
+        XLoader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/platformio/" class="md-nav__link">
+        PlatformIO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/arduino/" class="md-nav__link">
+        Arduino
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/gcode/" class="md-nav__link">
+        G-code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/motion/" class="md-nav__link">
+        Motion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/coordinates/" class="md-nav__link">
+        Coordinates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/V1EngineeringInc/V1EngineeringInc-Docs/edit/master/docs/lowrider/index.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="low-rider-cnc-3">Low Rider CNC 3<a class="headerlink" href="#low-rider-cnc-3" title="Permanent link">&para;</a></h1>
+<p>The LowRider3 is the V1 Engineering version of a CNC router that can handle up to full sheet material! If the MPCNC is not big 
+enough for you this picks up where that left off.</p>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3_Fancy%20%286%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3_Fancy%20%286%29.jpg" width="600" /></a></div></p>
+<h3 id="key-points">Key Points<a class="headerlink" href="#key-points" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Most parts can be 3D printed. To save from shipping or printing large parts the machine can be partially assembled to cut them itself.</p>
+</li>
+<li>
+<p>Easily Removable from the table for storage or portability.</p>
+</li>
+<li>
+<p>Inexpensive hardware store conduit is the recommended X rail. Rails ranging from 23.4mm to 25.4mm will work. This saves considerable cost over the LR2.</p>
+</li>
+<li>
+<p>Many tool options, in terms of functionality and brands. Blank DIY mount files are available.</p>
+</li>
+<li>
+<p>Full Y and Z axis squaring, leveling, and Z probing are available for excellent precision and accuracy.</p>
+</li>
+<li>
+<p>Works with any 5 driver board. 4 driver boards can be used but some automation, one axis dual endstops, will be lost.</p>
+</li>
+<li>
+<p>Can be used with Marlin, RepRap firmware, GRBL, FluidNC, or others.</p>
+</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3_Fancy%20%282%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3_Fancy%20%282%29.jpg" width="600" /> </a></div></p>
+<h3 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>This CNC router can handle any length (within reason), the Y direction is only bound by your table length.</p>
+</li>
+<li>
+<p>The single Y rail keeps the machine properly constrained while maintaining ease of use. Two rails are extremely difficult to 
+align, and fully constrained rails do not allow for easy removal of the machine.</p>
+</li>
+<li>
+<p>Width (X axis or &ldquo;Beam&rdquo;) should always be the shorter axis.</p>
+</li>
+<li>
+<p>The Z direction (height) is best kept to 80mm. This allows for 1.5&rdquo; of cutting depth, that is a lot. If you need to cut more that 1.5&rdquo; deep this is not 
+the CNC for you. Now if you need to cut a few millimeters off  really thick material (facing a slab), this can be a great machine for that. You want to keep the machine as low as possible and 
+make the table surface adjustable, drop table. This keeps the Material Removal Rate very high. The answer is not making a taller machine.</p>
+</li>
+<li>
+<p>This router is most rigid when working near the table surface, opposite of most conventional gantry CNC machines. So the lower the axis the more rigid the machine.</p>
+</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3_Fancy%20%283%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3_Fancy%20%283%29.jpg" width="600" /></a></div></p>
+<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h3>
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p>More details to my loosened restrictions can be found here on <a href="https://www.v1engineering.com/license/">the home page</a>. </p>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3_Fancy%20%284%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3_Fancy%20%284%29.jpg" width="600" /></a></div></p>
+<h3 id="files-can-be-found-at-the-links-below">Files can be found at the links below<a class="headerlink" href="#files-can-be-found-at-the-links-below" title="Permanent link">&para;</a></h3>
+<dl>
+<dt>Printables.com</dt>
+<dd><a href="https://www.printables.com/model/204709-lowrider-3-cnc">Printables.com Link</a></dd>
+<dt>Thingiverse Printed parts files:</dt>
+<dd><a href="https://">Thingiverse.com Link</a> Coming soon!</dd>
+</dl>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3_Fancy%20%287%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3_Fancy%20%287%29.jpg" width="600" /></a></div></p>
+<div class="admonition info previous build">
+<p class="admonition-title">LR V2</p>
+<p>Version two instructions are <a href="lrv2/indexv2/">here</a></p>
+</div>
+<h2 id="parts-needed">Parts Needed<a class="headerlink" href="#parts-needed" title="Permanent link">&para;</a></h2>
+<h3 id="printed-parts">Printed Parts<a class="headerlink" href="#printed-parts" title="Permanent link">&para;</a></h3>
+<p>Buy a set here, <a href="https://shop.v1engineering.com/collections/lowrider-parts/products/lowrider-v3-printed-parts">V1 Shop</a>.</p>
+<p>Or print your own. No supoprts needed, keep the default orientation. PLA is recommended for ultimate rigidity, other 
+filaments should be evaluated for rigidity. 2-3 walls rectilinear infill. Thicker layers since these are large parts, no 
+more than 80% nozzle diameter to keep overhangs working.</p>
+<table>
+<thead>
+<tr>
+<th>QTY</th>
+<th>File Name</th>
+<th>Infill</th>
+<th>Comment</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LR Core</td>
+<td>35%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>X Drive Mount</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Y Drive</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Z Drive</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Temporary Strut</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Front Rail Roller</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Rear Rail Roller</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bearing Wheel Bracket Front</td>
+<td>30%</td>
+<td>* See note below - Optional Version</td>
+<td><a href="https://www.printables.com/model/211714-lr3-60mm-wheel-brackets">Link</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bearing Wheel Bracket Rear</td>
+<td>30%</td>
+<td>* See note below - Optional Version</td>
+<td><a href="https://www.printables.com/model/211714-lr3-60mm-wheel-brackets">Link</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Z Stop</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Z Stop M</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>Brace -Choose one size-</td>
+<td>30-50%</td>
+<td>* See Brace Note below</td>
+<td></td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>Hose Hanger</td>
+<td>30%</td>
+<td>Same number as braces, Optional part</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>X Tensioner</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>XZ Plate Left</td>
+<td>70%</td>
+<td>* See XZ note below - Can be milled</td>
+<td><a href="https://shop.v1engineering.com/products/lowrider-3-metal-xz-plates">Shop</a> - <a href="/lowrider/#xz-plates">DXF</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>XZ Plate Right</td>
+<td>70%</td>
+<td>* See XZ note below - Can be milled</td>
+<td><a href="https://shop.v1engineering.com/products/lowrider-3-metal-xz-plates">Shop</a> - <a href="/lowrider/#xz-plates">DXF</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Front Y Belt Holder</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Front Y Belt Base</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Front Y Belt Holder Right</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Front Y Belt Base Right</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Y Tension Block Rear</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Y Tension Base Rear</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Y Tension Block Rear Right</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Y Tension Base Rear Right</td>
+<td>30%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8-14</td>
+<td>Rail Block -Choose one size-</td>
+<td>30%</td>
+<td>* See Rail block note below</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Optionally Printed</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>YZ Plate</td>
+<td>50%</td>
+<td>Best as a milled part</td>
+<td><a href="https://shop.v1engineering.com/collections/lowrider-parts/products/lowrider-cnc-v3-yz-plates">Shop</a> - <a href="/lowrider/#yz-plates">DXF</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Optional Version- You can use 58-62mm X 25mm with the option brackets. The wheels might provide for a smoother rider over 
+ a rough table or debris with the downside being a bit of &ldquo;give&rdquo; and the possibility of the Wheels steering a non parallel build. 
+ The bearings should be more precise and make for a more forgiving build. <a href="https://shop.v1engineering.com/collections/lowrider-parts/products/urethane-wheels">Wheels</a> 
+ <a href="https://shop.v1engineering.com/collections/all/products/axle-spacers">Spacers</a></p>
+</li>
+<li>
+<p>Brace note-  Print the end two braces with 50% infill and the rest with 30%. 2&rsquo; wide builds need 6 total,
+ 4 foot versions need 8 total. One every 200mm (8&rdquo;) or less. Recommended US &frac34;&rdquo; EMT = 23.4mm = Brace 23p4 that is the suggested size for US based builds.</p>
+</li>
+<li>
+<p>XZ Note- Can be a flat part. Milled or Purchased. If you do use a flat part you will need to print both &ldquo;XZ Leadscrew Stub Right&rdquo; and &ldquo;XZ Leadscrew Stub&rdquo;. These also need 70% infill.</p>
+</li>
+<li>
+<p>Rail Block note- You want these with no larger than 200mm (8&rdquo;) or less gap between them. Recommended US &frac12;&rdquo; EMT = 18.1mm = Rail Block 18p1.3mf. You will need 8 for a 4&rsquo; build and 14 for a 8&rsquo; build.</p>
+</li>
+</ul>
+<h3 id="tool-mounts">Tool Mounts<a class="headerlink" href="#tool-mounts" title="Permanent link">&para;</a></h3>
+<p>Recommended <a href="https://amzn.to/3PnQKUf">Makita 700 series router</a> (available in many countries with slightly different model 
+numbers), <a href="https://www.printables.com/model/167678-makita-700-series-mount-and-removable-dust-shoe-fo">tool mount and dust shoe</a>.</p>
+<p><a href="https://amzn.to/3leu6zL">DeWalt 611</a>, <a href="https://www.printables.com/model/166254-dewalt-611-mount-and-removable-dust-shoe-for-the-l">Tool mount and dust shoe</a>.</p>
+<p>Build your own, <a href="https://a360.co/3vbUQFX">CAD</a> and <a href="https://www.printables.com/model/167687-lowrider-3-cnc-blank-tool-mount">step files</a>.</p>
+<h3 id="board-boxes">Board Boxes<a class="headerlink" href="#board-boxes" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.printables.com/model/209348-skr-pro-lr3-specific-case">SKR Pro</a>
+<a href="https://www.printables.com/model/209411-rambo-or-mini-rambo-lr3-specific-case">Rambo</a>
+<a href="https://www.printables.com/model/209411-rambo-or-mini-rambo-lr3-specific-case">Mini Rambo</a></p>
+<p>Blank Box, DIY your own case, <a href="https://www.printables.com/model/215441-blank-cad-for-lr3-control-box-case">Fusion 360 CADlink</a>.</p>
+<h2 id="flat-parts">Flat Parts<a class="headerlink" href="#flat-parts" title="Permanent link">&para;</a></h2>
+<h4 id="strut-plates">Strut Plates<a class="headerlink" href="#strut-plates" title="Permanent link">&para;</a></h4>
+<p>The Three Strut plates were designed to be up to 6.35mm (&frac14;&ldquo;) thick. Hardboard or any similarly rigid materials work best 
+here.</p>
+<p>Here are the pre-made most common Strut Plate sizes.</p>
+<p><a href="../img/lr3/Strut%20Plate%201400mm.dxf">4&rsquo; Strut PLate Plate DXF</a></p>
+<p><a href="https://a360.co/34F4cAL">4&rsquo; Strut PLate Plate CAD/Fusion360</a></p>
+<p><a href="../img/lr3/Strut%20Plate%20790mm.dxf">2&rsquo; Strut plate Plate DXF</a></p>
+<p><a href="https://a360.co/3CrRkKw">2&rsquo; Strut PLate Plate CAD/Fusion360</a></p>
+<p>If you choose to adjust these to fit your build the only thing to know is you want no more than 200mm (8&rdquo;) between the braces.
+Start with whichever CAD file is closest to your desired size and edit the first sketch.</p>
+<p><img alt="Strut Edit Picture" loading="lazy" src="../img/lr3/strut%20edit.jpg" width="600" /></p>
+<h4 id="yz-plates">YZ Plates<a class="headerlink" href="#yz-plates" title="Permanent link">&para;</a></h4>
+<p>The YZ Plates can be nearly any thickness. Again here, rigidity is key. &frac12;&rdquo; (12mm) MDF is a great choice. Much thicker than 
+that and you will need to clearance some for the coupler. At 16.5mm and thicker you will need to counter bore for the M5 nuts
+ or get longer screws.</p>
+<p><a href="../img/lr3/YZ%20plate%20DXF.dxf">YZ Plate DXF</a>
+<a href="../img/lr3/two%20YZ%20plates.dxf">Mirrored set YZ Plate DXF</a>, just to make it easy to mill up a set.
+<a href="../img/lr3/YZ%20Plate.stl">YZ Plate STL</a>, If you want to try and print it.</p>
+<h4 id="xz-plates">XZ Plates<a class="headerlink" href="#xz-plates" title="Permanent link">&para;</a></h4>
+<p>The printed XZ plates (when printed in PLA) prove to be more rigid than &frac12;&rdquo; MDF. The only way to get any more rigidity 
+is going to metal. If you choose to make your own, here are the guidelines. </p>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/nomorethan9p5.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/nomorethan9p5.jpg" width="600" /></a></div></p>
+<p>The M5 screws provided with the kit can handle up to 9.5mm thick plates and anything less than that. Anything above and 
+you will need to counter bore the heads.</p>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/nomorethan7.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/nomorethan7.jpg" width="600" /></a></div></p>
+<p>The M3 screws provided with the kit need 6.35mm to 7mm plate thickness. If you go thinner you will needs washers, to go 
+thicker you will need to counter bore the heads. </p>
+<p><a href="../img/lr3/XZ%20Plate.dxf">XZ Plate DXF</a></p>
+<h3 id="specialty-parts">Specialty Parts<a class="headerlink" href="#specialty-parts" title="Permanent link">&para;</a></h3>
+<p>You can buy most of the Specialty Parts and hardware here, <a href="https://shop.v1engineering.com/collections/lowrider-parts/products/lowrider-v3-hardware-kit">V1 Shop</a></p>
+<table>
+<thead>
+<tr>
+<th>QTY</th>
+<th>Description</th>
+<th>Comment</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Control Board</td>
+<td>5 driver minimum</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/skr-pro1-2-6x-2209-drivers-tft35-e3-v3">Shop</a> – <a href="https://amzn.to/3mp6nOk">Amazon</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Steppers, Nema17</td>
+<td>20mm+ shaft length</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/nema-17-76oz-in-steppers">Shop</a> – <a href="https://amzn.to/3FcxGlE">Amazon</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>stepper wire extenders</td>
+<td></td>
+<td><a href="https://shop.v1engineering.com/products/wiring-kit-1">Shop</a> – <a href="https://amzn.to/39DSW9I">Amazon</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pulleys 16T 10mm</td>
+<td>10mm GT2 16 Tooth</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/pulley-16-tooth-gt2-10mm">Shop</a> – <a href="https://amzn.to/3n9mUGM">Amazon</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Idlers Smooth 20T</td>
+<td>20T Smooth 5mm Bore</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/20t-idler-gt2-10mm">Shop</a> – <a href="https://amzn.to/3JXAXJi">Amazon</a></td>
+</tr>
+<tr>
+<td>8M</td>
+<td>Belt GT2 10mm</td>
+<td>See <a href="calculator/">Calculator</a>, no steel belt</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/gt2-10mm-belt">Shop</a> – <a href="https://amzn.to/3u5imW6">Amazon</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Endstops</td>
+<td></td>
+<td><a href="https://shop.v1engineering.com/collections/parts/products/limit-switch-endstop">Shop</a> – <a href="https://amzn.to/396oRzi">Amazon</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>6082rs Bearings</td>
+<td></td>
+<td><a href="https://shop.v1engineering.com/collections/lowrider-parts/products/bearings-608-2rs">Shop</a> – <a href="https://amzn.to/3FDI8EI">Amazon</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>T8 Leadscrew &amp; nut</td>
+<td>110mm or larger</td>
+<td><a href="https://shop.v1engineering.com/collections/lowrider-parts/products/110mm-t8-leadscrew-and-nut">Shop</a> – <a href="https://amzn.to/3wnjvrI">Amazon</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Coupler</td>
+<td>8mm to 5mm</td>
+<td><a href="https://shop.v1engineering.com/collections/lowrider-parts/products/5mm-to-8mm-flex-coupler">Shop</a> – <a href="https://amzn.to/3yoet0D">Amazon</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Linear rails MGN</td>
+<td>MGN12H 150mm</td>
+<td><a href="https://shop.v1engineering.com/products/150mm-mgn12h-linear-guides">Shop</a> – <a href="https://amzn.to/3PyAujr">Amazon</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Power Supply</td>
+<td>12-36V Board dependant 36W+</td>
+<td><a href="https://shop.v1engineering.com/collections/lowrider-parts/products/12v-6a-power-supply">Shop</a> – <a href="https://amzn.to/3Pe0P6m">Amazon</a></td>
+</tr>
+<tr>
+<td>*</td>
+<td>Thread locker</td>
+<td>Optional for grubs screws</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/0-5ml-threadlocker-242">Shop</a> – <a href="https://amzn.to/3GhaKmx">Amazon</a></td>
+</tr>
+<tr>
+<td>*</td>
+<td>Lube</td>
+<td>Optional for idlers and linear rails</td>
+<td><a href="https://shop.v1engineering.com/collections/3dprinter-parts/products/super-lube-silicone-lubricating-grease-with-syncolon-ptfe">Shop</a> – <a href="https://amzn.to/31H7yS6">Amazon</a></td>
+</tr>
+<tr>
+<td>*</td>
+<td>Vac Hose</td>
+<td>Optional any 1.5&rdquo; OD Vacuum hose should work</td>
+<td>– <a href="https://amzn.to/38iqA4v">Amazon</a></td>
+</tr>
+</tbody>
+</table>
+<p>As an Amazon Associate, I earn from qualifying purchases.</p>
+<h3 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h3>
+<p>This is what is needed for a 4&rsquo; x 8&rsquo; (1.2M x 2.4M) build. You will need more or less depending on what size you build.</p>
+<table>
+<thead>
+<tr>
+<th>QTY</th>
+<th>Description</th>
+<th>US Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>M8 x 40mm</td>
+<td>5/16&rdquo; x 1.5&rdquo;</td>
+</tr>
+<tr>
+<td>14</td>
+<td>M8 Nylock nuts</td>
+<td>5/16&rdquo; Nylock</td>
+</tr>
+<tr>
+<td>100</td>
+<td>M5 x 30mm</td>
+<td>None</td>
+</tr>
+<tr>
+<td>100</td>
+<td>M5 Nylock</td>
+<td>None</td>
+</tr>
+<tr>
+<td>40</td>
+<td>M3 x 10mm</td>
+<td>None</td>
+</tr>
+<tr>
+<td>10</td>
+<td>M2.5 x 12mm</td>
+<td>None</td>
+</tr>
+<tr>
+<td>24</td>
+<td>3mm x 12mm Wood/metal</td>
+<td>#4 x &frac12;&rdquo; Wood or Sheet metal screws</td>
+</tr>
+<tr>
+<td>*22</td>
+<td>M4 x 12mm+ Wood/metal</td>
+<td>#8 x &frac12;&ldquo;+ Screws to mount things to your table</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Not included in the hardware kit. </li>
+</ul>
+<h3 id="lr2-to-lr3-hardware-differences-for-updating-your-build">LR2 to LR3 hardware differences for updating your build<a class="headerlink" href="#lr2-to-lr3-hardware-differences-for-updating-your-build" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>QTY</th>
+<th>Description</th>
+<th>US Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>M8 x 40mm</td>
+<td>5/16&rdquo; x 1.5&rdquo;</td>
+</tr>
+<tr>
+<td>94</td>
+<td>M5 x 30mm</td>
+<td>None</td>
+</tr>
+<tr>
+<td>94</td>
+<td>M5 Nylock</td>
+<td>None</td>
+</tr>
+<tr>
+<td>36</td>
+<td>M3 x 10mm</td>
+<td>None</td>
+</tr>
+<tr>
+<td>10</td>
+<td>M2.5 x 12mm</td>
+<td>None</td>
+</tr>
+<tr>
+<td>24</td>
+<td>3mm x 12mm Wood/metal</td>
+<td>#4 x &frac12;&rdquo; Wood or Sheet metal screws</td>
+</tr>
+<tr>
+<td>22</td>
+<td>M4 x 12mm+ Wood/metal</td>
+<td>#8 x &frac12;&ldquo;+ Screws to mount things to your table</td>
+</tr>
+<tr>
+<td>4</td>
+<td>150mm MGN12H Rails</td>
+<td><a href="https://shop.v1engineering.com/collections/lowrider-parts/products/150mm-mgn12h-linear-guides">Shop Link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="table">Table<a class="headerlink" href="#table" title="Permanent link">&para;</a></h3>
+<p>Any flat surface you can screw into will work great. Basic torsion box tables can 
+be a step up in terms of long term stability with not all that much added complexity. 
+A Removable spoil board section that can be easily replaced comes in handy as well.</p>
+<p>footprint *to do
+rail position
+Belt block positions</p>
+<p><a href="calculator/">Calculator for table, rail, and belt lengths.</a></p>
+<h2 id="assembly">Assembly<a class="headerlink" href="#assembly" title="Permanent link">&para;</a></h2>
+<h4 id="core-assembly">Core Assembly<a class="headerlink" href="#core-assembly" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%281%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%281%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>LR Core, and six M5 nuts.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%282%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%282%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Press these 6 nuts in place.</li>
+<li>If they are not snug, use some loctite or glue to keep them in place, or mount your tool mount now loosely.</li>
+<li>The 7<sup>th</sup> hole is a spare for future expansion packs.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%283%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%283%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Bolts, 6082RS bearings and nuts for the next step.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%284%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%284%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Snug up these 6 bolts and make sure everything still moves freely.</li>
+<li>These last two bolts control how much tension the core has on the Beam.</li>
+<li>Lightly seat these nuts and wait to set the tension until you have the beam ready.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%285%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%285%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Get your Micro switch ready along with some M2.5 screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%286%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%286%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Notice the lever orientation.</li>
+<li>Lightly set the M2.5 screws. If they strip out, add a drop of glue or thread locker to the threads
+  and they should stay seated when it dries.</li>
+</ul>
+<h5 id="x-drive">X Drive<a class="headerlink" href="#x-drive" title="Permanent link">&para;</a></h5>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%287%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%287%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>This section uses the X Stepper Mount, M5&rsquo;s, and Idlers.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%288%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%288%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Assemble as shown with the nuts down, very lightly seating the nuts.</li>
+<li>The inside nut fits in a small groove in the printed part. </li>
+<li>Make sure the Idlers spin freely.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%289%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%289%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add the pulley to the stepper 1-2mm up from the base.</li>
+<li>Tighten the flat grub screw first and then the next.</li>
+<li>Threadlocker or LocTite is recommended.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2810%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2810%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Assure the pulley in centered with the idlers when assembled.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2811%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2811%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Make sure to orient the wire out, as shown.</li>
+<li>Snug the stepper in place with M3&rsquo;s</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2812%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2812%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add the stepper assembly to the Core.</li>
+<li>Make sure the M5&rsquo;s engage the nuts properly, If there is any sign of binding, back out and try again.</li>
+<li>If for some reason the nuts spin, use a small flat head screw driver to pin it in place as you tighten.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2813%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2813%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Snugged in place.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2814%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2814%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Tuck the wires into the groove and you can secure them at the top with a wire or cable tie.</li>
+<li>Now is a good time to add your touch plate wires if you are using one.</li>
+<li>If you are concerned you can add a piece of tape in between the screw holes but any tool mount should also do the trick here.</li>
+<li>Soon this part is going to be buried behind a router and a hose, so admire it now. Looks good, right?!</li>
+</ul>
+<hr />
+<h4 id="side-plate-assemblies">Side Plate Assemblies<a class="headerlink" href="#side-plate-assemblies" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2815%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2815%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Z drives, steppers, M3 screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2816%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2816%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Pay attention to wire routing here. </li>
+<li>Snug up the M3 Screws</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2817%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2817%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Y drives, Idlers, M5&rsquo;s</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2818%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2818%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Seated, not snug. Screws are axles here.</li>
+<li>Nuts facing down.</li>
+<li>Make sure idlers are very free to spin.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2819%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2819%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add the pulley to the stepper. 1-2mm gap next picture has a visual check.</li>
+<li>Tighten the grub screw on the flat shaft surface first then the other screw.</li>
+<li>LocTite is recommend on all grub screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2820%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2820%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Make sure the pulley teeth are centered with the idlers.</li>
+<li>Snug The stepper in place with the M3 Screws.</li>
+<li>Wires should face one in each direction (mirrored), just like the Y drives.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2821%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2821%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Microswitches, M2.5 screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2822%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2822%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Make sure the lever faces out (up in this picture).</li>
+<li>Switch away from the stepper wires, route wires together (for now).</li>
+<li>Gentle with the tiny screws threading into the printed part. Seated, no more.</li>
+<li>If you do happen to strip out the screw holes, a drop of nearly any glue or 
+ LocTite on the threads will fix it.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2823%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2823%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Orientation, mirrored sets.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2824%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2824%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Z Stop &amp; Z Stop M, wired endstops, M2.5mm screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2825%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2825%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Notice the direction of the switch levers</li>
+<li>Tuck the wires nicely into the grove and make sure not to pinch them when installing them later.</li>
+<li>Gentle with the small M2.5 screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2826%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2826%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>T8 nut, and 1-2 M3 screws.</li>
+<li>In the following steps, you will either be using the printed XZ plates, or XZ lead screw stubs.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2827%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2827%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>One screw is plenty as it is just there to stop the brass nut from spinning.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2831%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2831%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>A completed XZ printed plate.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2828%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2828%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>With milled XZ plates, you will need to attach the stubs to the plate with an M5.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2829%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2829%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>The nuts gets seated in the printed stub.</li>
+<li>Align the angled surfaces of both parts.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2830%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2830%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Orientation of the stubs and XZ plates.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2832%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2832%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>The MGN12H bearing blocks get attached to the XZ plate.</li>
+<li>If you are using the printed version, M3x10mm screws will fit.</li>
+<li>If you are using a milled part follow the guidelines for thickness. Only use washers if necessary.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2833%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2833%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now is a good time to assure the linear guides are moving freely. If not, loosen the 4 small screws
+ on the end of the bearing block a full turn. Move the bearing block back and forth and tighten the 
+ screws back up.</li>
+<li>You can add a touch of a light oil or dab of the superlube, but it should not be necessary.</li>
+<li>Keep the stops in the end until they are mounted to the YZ plates to avoid tiny bearings everywhere.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2834%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2834%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>With the rails mounted, make sure they are parallel by measuring how far apart they are at the top 
+ and bottom of travel at the ends.</li>
+<li>Snug up the M3&rsquo;s. LocTite is not a bad idea here.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2835%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2835%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>You will need to add two M5&rsquo;s to the holes shown here. Actually, you only need the lower two, but just to be safe drop them all in for now.</li>
+<li>Use the small wood screws to attach the rails to the YZ plate.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2836%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2836%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Start attaching the rails in the middle, one screw each. Loosely.</li>
+<li>Once you have a screw in each rail you can remove the stops.</li>
+<li>Keep adding screws and checking for smooth motion as you go.</li>
+<li>The hole in the XZ plate is there to let you access the middle screw.</li>
+<li>If all is going well, snug up the screws into the wood. Gentle here. Do not strip out the wood. It doesn&rsquo;t take much.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2837%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2837%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add the Z drive wires facing the back.</li>
+<li>Use M5 screws here and snug it up a bit.</li>
+</ul>
+<h5 id="z-end-stop">Z End Stop<a class="headerlink" href="#z-end-stop" title="Permanent link">&para;</a></h5>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2838%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2838%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Z Stop &amp; Z Stop M</li>
+<li>Test to make sure the micro switch clicks before the XZ plate hits the top.</li>
+<li>If not, the printed parts are slotted and you can bend the triggers to adjust. 
+ Bend after the actual tiny trigger.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2839%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2839%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>
+<p>The endstop wires will run through a small slot in the Y drive. Make sure they are free to move and not pinched.</p>
+</li>
+<li>
+<p>Keeping the printed parts aligned with the plates keeps it looking nice.</p>
+</li>
+<li>Make sure the screws are snug so the switches do not move.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2840%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2840%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Insert the Y drive. It goes in with a 90 degree twist. Should be plenty of room just.</li>
+<li>Make sure the endstop wires are free moving.</li>
+<li>
+<p>Snug the screws.</p>
+</li>
+<li>
+<p>Wire routing, each side should run towards the back of the plate.</p>
+</li>
+<li>Cable tie points on the Y and Z drives.</li>
+<li>Wire sleeve is optional, but looks nice here. Or, leave them exposed to make it look more complicated to your audience. Everyone loves a person with a big brain.</li>
+</ul>
+<h5 id="wheels">Wheels<a class="headerlink" href="#wheels" title="Permanent link">&para;</a></h5>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2841%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2841%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>608rs and bolts, Bearing Wheel Bracket Front &amp; Rear.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2842%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2842%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Preferred &ldquo;wheels&rdquo; </li>
+<li>Seat the bolt so the head and nut are making contact, but do not tighten. This is just an axle.</li>
+<li>Pay attention to the bolt orientation. The nut goes in the deeper side.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2843%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2843%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Optional Wheel brackets <a href="https://www.printables.com/model/211714-lr3-60mm-wheel-brackets">Link</a></li>
+<li>Use spacers to prevent over tightening </li>
+<li>Seat the bolt, but no need to over-snug it.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2844%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2844%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Wheels installed; bolts in, nuts out. Snug these four screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2845%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2845%29.jpg" width="400" /></a></div></p>
+<h5 id="rail-rollers">Rail Rollers<a class="headerlink" href="#rail-rollers" title="Permanent link">&para;</a></h5>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2846%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2846%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Front and Rear Rail Roller, bolts and bearings.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2847%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2847%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Insert the bearings, and seat the bolts.</li>
+<li>No need to snug as these are just axles.</li>
+<li>Bolt orientation is important here. One bolt is facing up and the nuts is tricky to slide into the top.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2848%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2848%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Side Plates are done!</li>
+<li>Roll them around on your table making motor noises to make sure they work right.</li>
+</ul>
+<hr />
+<h4 id="beam-assembly">Beam Assembly<a class="headerlink" href="#beam-assembly" title="Permanent link">&para;</a></h4>
+<ul>
+<li>If you already have your strut plates cut, use this as a loose guide. </li>
+<li>Install the plates loosely at first to get everything aligned then go back and snug them all up. Install the plates in this order; front (clamping), bottom, back (with hose guides if using them).</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2849%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2849%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Building the beam includes the X rails, braces (optionally two with higher infill for the ends), temporary strut plates, and a lot of M5&rsquo;s.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2850%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2850%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Fit your rail together. Make sure the end two plates have a top printed surface facing out. This makes for a more perfect mating surface as mesh bed leveling can leave an odd surface on the bottom.</li>
+<li>Sliding the braces on your rail is preferred over snapping them in. This keeps a sharp clamp tip.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2851%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2851%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Next step is to add the front temporary strut plates.</li>
+<li>Remember, initially you will be leaving the screws loose.</li>
+<li>Roughly space the rest of the braces equally down the beam.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2853%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2853%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Loosely add the rest of the front Screws.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2854%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2854%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Very loosely add the bottom screws, lightly engaging the Nyloc just so they do not fall out while making these first cuts.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2855%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2855%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now add the rear temporary strut plates and optionally, the hose hangers.</li>
+<li>You can snug up the temp plate screws and the hose hanger screws.</li>
+<li>If you lay the beam on its face as shown in this picture you can tell if the beam is twisted or not.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2852%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2852%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now go back and snug up the front clamps.</li>
+<li>The key here is just lightly engaged, <em>There will be a gap</em>, and the rails will be able to spin if you try.</li>
+<li>The clamps do not do very much other than account for slight rail size differences. Do not over tighten.</li>
+<li>The only catch here is make sure the screw faces make contact and the nuts make contact with the printed part. It is possible to thread the screw in and the nuts not actually be all the way in, eventually they would loosen up. You can thread the screw all the way in and keep turing to lightly ream out the screw hole if needed before adding the nuts.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2856%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2856%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add the LR-Core to the beam and set the tension of the lower two bolts. </li>
+<li>Too loose and the core can move and you will hear bearings clicking on the rails.</li>
+<li>Too tight and you will feel the LR-Core hesitate over each brace. More is not better here.</li>
+<li>Typically little to no extra tension is needed and it is best just to seat the nuts gently.</li>
+<li>Last check is to make sure the X rails do not stick out further than the braces, at least on the bottom rail.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2857%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2857%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>You can add the side plates using the 6 screws.</li>
+<li>Snug these up.</li>
+<li>Make sure both sides move up and down pretty freely, as long as gravity pulls them all The way down you are good to go here.</li>
+<li>Best practice is to make robot noises while you move it up and down (feel free to tag me in your video when you do #V1LR3).</li>
+</ul>
+<hr />
+<h4 id="x-belt">X Belt<a class="headerlink" href="#x-belt" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2858%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2858%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Run your X belt through the X Drive.</li>
+<li>It is a good idea to run it as shown and cut it when you know exactly how long to make it.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2859%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2859%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>To secure the ends you can make a small fold, or use a 4-5 tooth cutoff, and pull it back into the slot.</li>
+<li>Just make sure it does not interfere with the YZ plate when you move the Z axis all the way up.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2860%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2860%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Leave a bit of room to pull it out if needed.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2861%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2861%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>For the X tensioner, side you loop the belt through and set the length.</li>
+<li>If you have a hard time getting this right, you can draw a little line on the top of your belt to see which way you need to go. Each tooth is two millimeters (1/16&rdquo;), so it is very easy to adjust.</li>
+<li>Make sure to seat the nut into the tensioner.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2862%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2862%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add the X tensioner to the XZ plate and set the tension just below where it makes a sound when you pluck it.</li>
+<li>Make sure to leave ~4mm (&#8539;&ldquo;) or more gap between the plate and tensioner to adjust this later if needed.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2863%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2863%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Add your tool mount of choice.</li>
+<li>Snug up the vacuum side of the mount and leave the stepper side loose. This is the side you will always use to set the tension.</li>
+<li>Make sure the wires are free to move behind the mount and not pinched.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2864%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2864%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Stand back and admire what you have accomplished. Feel free to get a loved one or neighbor and tell them you designed the entire thing from scratch.</li>
+</ul>
+<hr />
+<h4 id="y-rail">Y Rail<a class="headerlink" href="#y-rail" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Dimensions Picture" href="../img/lr3/LR3%20Dims.jpg"><img alt="LR3 Dimensions Picture" loading="lazy" src="../img/lr3/LR3%20Dims.jpg" width="600" /></a></div></p>
+<ul>
+<li>The calculator dimensions are for edge to edge table use. If you added extra width divide it by two and place your &ldquo;Front Y Belt Holder Base Right&rdquo;.</li>
+<li>From there the edge of your Rail blocks get placed 61.75mm in from that, that line gets followed all the way down the rail.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2865%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2865%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>I pre-drill all the rail block holes in the center to have some adjustment if needed.</li>
+<li>The center of the rail block slots are 44.7mm in from the line set in the previous step for a total of 106.45mm in from the edge of your Y belt block. </li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2866%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2866%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Place the rail blocks no further than 200mm (8&rdquo;) apart.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2867%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2867%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>You can measure out the other Y belt holder block or wait to use the fully assembled machine to mark it with the Y drive. The Y drives are flush with the rail blocks. </li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2868%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2868%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Another view of that.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2869%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2869%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Place the Y tension bases inline with the front blocks and far enough in to act as a hard stop not to drive your machine of the edge of the table.</li>
+<li>30mm in from the edge is good. More in from the edge (88mm) if you do not want your hose holders to moves past the edge of the able.</li>
+</ul>
+<hr />
+<h4 id="wire-routing">Wire Routing<a class="headerlink" href="#wire-routing" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2870%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2870%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Wire routing is pretty free form with lots of options. Here is how I do it.</li>
+<li>If you have not cut your strut plates yet you will have a chance to revisit the wiring or you can route it so you do not have to remove it at all.</li>
+<li>Labeling your wires is great idea.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2871%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2871%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Be sure to tape or secure any connections.</li>
+<li>I find it best to start by running the shortest wire first.</li>
+<li>You can see how the Z endstop and Y stepper wires are ran down and secured.</li>
+<li>The wires then run under the Z stepper and get secured again.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2872%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2872%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>The extensions will be needed for the wires on the rail side.</li>
+<li>You can route the wires around the back and into the hose holders (easy to work with later).</li>
+<li>Or you can run the wires into the beam and secure them in there.</li>
+<li>Make sure you have full range of Z motion and the wires don&rsquo;t catch anywhere.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2873%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2873%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Full shot of the wires ran and the excess folded over in the hose holders.</li>
+<li>The X axis wires need to have full range of motion so that means securing them just short of the half way point.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2874%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2874%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>I temporarily added the power supply on the wire bundle.</li>
+<li>After the strut plates are cut, I prefer to mount it inside the beam.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2875%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2875%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now you can add the lead screws.</li>
+<li>Make sure the Z axis has full range of motion and does not hit the coupler when at the bottom of motion.</li>
+</ul>
+<hr />
+<h4 id="y-belt">Y Belt<a class="headerlink" href="#y-belt" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2876%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2876%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>When running the Y belts Feed the belt through the Y drive and secure into the front blocks first.</li>
+<li>Loop the belt over with enough room to remove it later if needed.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2877%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2877%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>The rear blocks get a nut inserted and are quick release and adjustable.</li>
+<li>The right tension is tight, but just before it starts to sound like a bass guitar, if plucked. You should be able to remove the block still as well. If you have a way to check, 6-10lbs tension is what you&rsquo;re looking for.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2878%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2878%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Rear block assembled.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2879%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2879%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now do the other side.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2880%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2880%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>You nervous yet? It is time to fire it up! No need to make your own 
+ noises anymore, the machine will do it for you. See, I thought of everything!</li>
+</ul>
+<hr />
+<h2 id="getting-started-cutting-your-strut-plates">Getting Started, cutting your strut plates<a class="headerlink" href="#getting-started-cutting-your-strut-plates" title="Permanent link">&para;</a></h2>
+<p>At this point you should be able to power up and give your build a little test move. 
+Depending on how you&rsquo;re machine is built, you can use your control screen, repetier host, other software over USB, or over the air.</p>
+<p>Here is a quick overview of a <a href="../software/#testing">basic movement test</a>.</p>
+<h4 id="initial-squaring">Initial Squaring<a class="headerlink" href="#initial-squaring" title="Permanent link">&para;</a></h4>
+<p>To square the machine you need to mark 4 points and measure the diagonal. This is how we set the Y axis homing to square the machine relative to the rail. You will probably need to repeat this a couple times to get it under 1mm difference.</p>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2881%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2881%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>I use tape, so I can be sure I am using the correct mark.</li>
+<li>Home the X and Y axis.</li>
+<li>Use the Z axis to mark a small dot at 0,0.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2882%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2882%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now drive the machine to your X axis furthest point (or very close to it).</li>
+<li>Use the Z to mark the dot.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2883%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2883%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Drive to the Y extreme and repeat the process for the back two corners.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2884%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2884%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Now measure the diagonals to the best of your ability. Note the longer one, and subtract to find the difference. Under 1mm is very good.</li>
+</ul>
+<p>If you are over 1mm in difference you can use the terminal on your SKR Pro or a USB 
+connection and repetier host to add a homing offset. &ldquo;M666 Y0.5&rdquo; will move your Y1 
+stepper 0.5mm away from the stop block after it homes. &ldquo;M666 Y-0.5&rdquo; will move your 
+Y2 stepper away instead. You want to move the longer dimension side away from the 
+block. A good first guess is the difference in your measurements (or you can use a 
+trig calculator and add a bit because your end stops are further away than the 
+dots). Now Use &ldquo;M500&rdquo; to save it to the EEPROM. Re-home X and Y and test it again.</p>
+<hr />
+<h4 id="z-leveling">Z Leveling<a class="headerlink" href="#z-leveling" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2885%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2885%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Z leveling is a bit easier than the Y axis if you have a touch plate. You can also use any sort of block or piece of paper as a feeler gauge. </li>
+<li>We are only looking for the difference here.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2886%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2886%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>
+<p>Home all three of your axis.</p>
+</li>
+<li>
+<p>Touch plate - If you are using the touch plate, you probe by using G38.2 Z0. When it gets there, take note of the current Z position. Then move it up and over to your X axis extreme and probe again, taking note of the Z axis position. Take the difference and adjust the side that moved furthest.</p>
+</li>
+<li>
+<p>Feeler Gauge - You will drive your Z axis down until you just make contact with the touch plate and take note of the current Z axis position. Repeat this for the other end of the X axis. Take the difference and adjust the side that moved furthest.</p>
+</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2887%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2887%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>
+<p>You adjust by running &ldquo;M666 Z0.5&rdquo; the number is in millimeters. Save with M500 after each adjustment home all axis and start check your work. </p>
+</li>
+<li>
+<p>These numbers are counting down from 200, so 120 is further away than than 130. Start by adjusting 0.2mm more than your difference.</p>
+</li>
+</ul>
+<hr />
+<h4 id="making-the-strut-plates">Making the Strut plates<a class="headerlink" href="#making-the-strut-plates" title="Permanent link">&para;</a></h4>
+<p>At this point you should be ready to make some cuts. To be certain it all goes as planned, you can 
+make a test cut in high density foam, or simply making an air cut. To make an air cut you, just home 
+your machine above the table and run the gcode. This lets you watch that it moves as you would 
+expect it to and doesn&rsquo;t snag or have any faults in the code.</p>
+<p>Gcode making - TODO</p>
+<p>The three strut plates should be 6.35mm (&frac14;&ldquo;) Or thinner MDF or similarly rigid material.
+You will want to cut each plate as close to the side as you can to assure your build has the rigidity to do so.</p>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2888%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2888%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>
+<p>Getting ready to make your first cuts all starts with loading the material.</p>
+</li>
+<li>
+<p>Make sure the edge is behind your Endmill in the Y direction and parallel with the edge in the X direction. </p>
+</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2889%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2889%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Checking the front and back edges relative to the table. (To the rail would be a more proper measurement)</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2890%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2890%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>Secure the material and make sure your means will not interfere with the core as it passes over. I use screws with large heads.</li>
+</ul>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2891%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2891%29.jpg" width="400" /></a></div></p>
+<ul>
+<li>This is what a finished cut looks like. All parts are held in place with small tabs of material that can be cut with a saw or utility knife.</li>
+<li>Do this two more times.</li>
+</ul>
+<hr />
+<h4 id="disassembly">Disassembly<a class="headerlink" href="#disassembly" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2892%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2892%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2893%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2893%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2894%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2894%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2895%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2895%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2896%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2896%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2897%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2897%29.jpg" width="400" /></a></div></p>
+<hr />
+<h4 id="final-assembly">Final Assembly<a class="headerlink" href="#final-assembly" title="Permanent link">&para;</a></h4>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2898%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2898%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%2899%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%2899%29.jpg" width="400" />
+</a></div><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3%20%28100%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3%20%28100%29.jpg" width="400" /></a></div></p>
+<hr />
+<h3 id="vacuum">Vacuum<a class="headerlink" href="#vacuum" title="Permanent link">&para;</a></h3>
+<p><div class="lightgallery"><a data-sub-html="LR3 Fancy Picture" href="../img/lr3/LR3_Fancy%20%288%29.jpg"><img alt="LR3 Fancy Picture" loading="lazy" src="../img/lr3/LR3_Fancy%20%288%29.jpg" width="600" /></a></div></p>
+<p>Size, options, routing, grounding.  *to do</p>
+<p><a href="https://www.printables.com/model/168405-vacuum-hose-coupler">Quick release coupler</a> for 1.5&rdquo; hose.</p>
+<h3 id="using-the-machine">Using the machine.<a class="headerlink" href="#using-the-machine" title="Permanent link">&para;</a></h3>
+<h3 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h3>
+<p>Dual endstop LowRider &ldquo;DualLR&rdquo; firmware recommended for ultimate accuracy and precision. This requires 
+at least a 5 driver control board. This allows you to align the Y axis and Z axis using dual endstops.</p>
+<p>The standard MPCNC firmware will work with any board on the LowRider  if you are not using endstops or 
+wired in series (using a 4 driver board). You will just use hardstops like the LR2 did.</p>
+<p><a href="../electronics/marlin-firmware/">Firmware page.</a></p>
+<h2 id="go-get-it-dirty-be-safe-have-fun">Go get it dirty, be safe, have fun!<a class="headerlink" href="#go-get-it-dirty-be-safe-have-fun" title="Permanent link">&para;</a></h2>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../mpcnc/burly/belts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Belts" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Belts
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="calculator/" class="md-footer__link md-footer__link--next" aria-label="Next: LowRider V3 Calculator" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              LowRider V3 Calculator
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC-BY-SA</a> Copyright 2022 V1Engineering Inc.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://www.v1engineering.com" target="_blank" rel="noopener" title="www.v1engineering.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.1c0 2.8-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2-.9-3.3-.1-1.4-.8-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.09 0-40-17.9-40-40V360c0-.9.03-1.9.09-2.8v-69.6H32.05C14.02 287.6 0 273.5 0 255.5c0-9 3.004-17 10.01-24L266.4 8.016c7-7.014 15-8.016 22-8.016s15 2.004 21.1 7.014L564.8 231.5c8 7 12.1 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://shop.v1engineering.com" target="_blank" rel="noopener" title="shop.v1engineering.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M96 0c11.5 0 21.4 8.19 23.6 19.51L121.1 32h420.7c20.3 0 36.5 20.25 30.8 40.66l-54 192.04c-3.9 13.8-16.5 23.3-30.8 23.3H170.7l9.2 48H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H159.1c-10.6 0-20.5-8.2-22.7-19.5L76.14 48H24C10.75 48 0 37.25 0 24S10.75 0 24 0h72zm176 180h44v44c0 11 8.1 20 20 20 11 0 20-9 20-20v-44h44c11 0 20-9 20-20 0-11.9-9-20-20-20h-44V96c0-11.05-9-20-20-20-11.9 0-20 8.95-20 20v44h-44c-11.9 0-20 8.1-20 20 0 11 8.1 20 20 20zM128 464c0-26.5 21.5-48 48-48s48 21.5 48 48-21.5 48-48 48-48-21.5-48-48zm384 0c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate"], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
