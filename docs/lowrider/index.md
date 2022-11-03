@@ -761,7 +761,13 @@ Here is a quick overview of a [basic movement test](../software/#testing).
 
 #### Initial Squaring
 
-To square the machine you need to mark 4 points and measure the diagonal. This is how we set the Y axis homing to square the machine relative to the rail. You will probably need to repeat this a couple times to get it under 1mm difference.
+To square the machine you need to mark 4 points and measure the diagonal. This is how we set the Y axis homing to square the machine relative to the rail.
+
+Put a large square (e.g. Framing square) on your Y rail and project a line all the way across. That will get your y min blocks real real close. 
+
+The Y rail is the truth, not your table. Build a square table, then mount the rail as square as you can, once that rail is down the table edges mean nothing.
+
+Expect to easily get it under 2mm, getting under 1mm takes couple of tries, or more for very large builds.
 
 You can cable tie a pen to the vacuum mount as shown below, or here is a pen mount that fits on most router bodies. [V1 Printables](https://www.printables.com/model/237997-basic-lr3-pen-mount)
 
