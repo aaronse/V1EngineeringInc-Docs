@@ -644,6 +644,6 @@ Next step is [wiring the steppers](../electronics/steppers.md){:target="_blank"}
 
 ### Build experience poll
 
-[How did it go for you?](https://forum.TED){:target="_blank"}
+[How did it go for you?](https://forum.TED](https://forum.v1e.com/t/lr4-how-many-hours-to-build-lr4/45641){:target="_blank"}
 
 ## Go get it dirty, be safe, have fun!
